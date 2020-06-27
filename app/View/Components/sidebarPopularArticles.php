@@ -3,9 +3,8 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Models\Category;
-
-class SideBar extends Component
+use App\Models\Post;
+class sidebarPopularArticles extends Component
 {
     /**
      * Create a new component instance.
@@ -24,11 +23,11 @@ class SideBar extends Component
      */
     public function render()
     {
-        return view('components.sidebar');
+        return view('components.sidebar-popular-articles');
     }
 
-    public function categories()
+    public function popularArticles()
     {
-        return Category::all();
+        return Post::inRandomOrder()->limit(5)->get();
     }
 }

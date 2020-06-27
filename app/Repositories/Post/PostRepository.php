@@ -54,8 +54,21 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
     }
 
-    public function find($id)
-    {
-        return $this->model->select('name')->whereId($id)->first();
+    public function find($slug)
+    {   
+        return $this->model->whereSlug($slug)->first();
     }
+
+    public function delete($id)
+    {
+        $result = $this->model->find($id);
+        if ($result) {
+            $result->delete();
+            $result->categories()->detach($result->id);
+            return true;
+        }
+
+        return false;
+    }
+
 }

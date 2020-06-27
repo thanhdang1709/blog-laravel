@@ -4,8 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use App\Models\Category;
-
-class SideBar extends Component
+class sidebarCategory extends Component
 {
     /**
      * Create a new component instance.
@@ -24,7 +23,7 @@ class SideBar extends Component
      */
     public function render()
     {
-        return view('components.sidebar');
+        return view('components.sidebar-category');
     }
 
     public function categories()

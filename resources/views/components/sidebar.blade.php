@@ -5,6 +5,13 @@
             <ul class="metismenu" id="side-menu">
                 <li class="menu-title">DASHBOARD</li>
                 <li>
+                    <a href="#">
+                        <i class="fas fa-newspaper"></i>
+                        <span class="badge badge-success badge-pill float-right">0</span>
+                        <span> Danh mục </span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('post.index')}}">
                         <i class="fas fa-newspaper"></i>
                         <span class="badge badge-success badge-pill float-right">0</span>
@@ -14,10 +21,10 @@
             </ul>
         </div>
         <!-- End Sidebar -->
-        <div class="clearfix">
+        {{-- <div class="clearfix">
             <p style="margin-top: 0;margin-bottom: 0px;font-style: italic;color: #98a6ad;">Hết hạn:</p>
             <span class="text-mute">{{$exprire}}</span>
-        </div>
+        </div> --}}
     </div>
     <!-- Sidebar -left -->
 </div>

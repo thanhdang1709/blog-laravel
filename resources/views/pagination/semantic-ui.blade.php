@@ -1,7 +1,4 @@
-@php 
-(empty($paginator))??die();
 
-@endphp
 @if ($paginator->hasPages())
     <div class="ui pagination menu" role="navigation">
         {{-- Previous Page Link --}}

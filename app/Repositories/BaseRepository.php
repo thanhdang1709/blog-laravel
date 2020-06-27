@@ -35,7 +35,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function getAllWithPaginate()
     {
-        return $this->model->paginate(10);
+        return $this->model->orderby('id','desc')->paginate(10);
     }
     
     public function find($id)
@@ -63,10 +63,9 @@ abstract class BaseRepository implements RepositoryInterface
     
     public function delete($id)
     {
-        $result = $this->find($id);
+        $result = $this->model->find($id);
         if ($result) {
             $result->delete();
-
             return true;
         }
 

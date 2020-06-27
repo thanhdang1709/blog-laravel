@@ -3,9 +3,8 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Models\Category;
-
-class SideBar extends Component
+use App\Models\Tag;
+class sidebarTag extends Component
 {
     /**
      * Create a new component instance.
@@ -24,11 +23,12 @@ class SideBar extends Component
      */
     public function render()
     {
-        return view('components.sidebar');
+        return view('components.sidebar-tag');
     }
 
-    public function categories()
-    {
-        return Category::all();
+    public function tags()
+    {   
+        $tags = Tag::all();
+        return $tags;
     }
 }

@@ -17,15 +17,18 @@ use App\Jobs\SendWelcomeEmail;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontHomeController@index');
+Route::get('/p/{slug}', 'FrontHomeController@single');
+Route::get('/c/{slug}', 'FrontHomeController@singleCategory');
+Route::get('/s/{slug}', 'FrontHomeController@singleSearch');
+
+
+Route::get('/about', 'FrontHomeController@about')->name('about');
+Route::get('/contact', 'FrontHomeController@contact')->name('contact');
 
 Auth::routes();
-Route::get('/queue', function(){
-	$user = User::first();
-	dispatch(new SendWelcomeEmail($user));
-});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
@@ -38,9 +41,16 @@ Route::group([
 ], function () {
    Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
    Route::resource('/post', 'Admin\PostController')->except(['store','destroy']);//index,show/create/update/edit/
+   Route::resource('/category', 'Admin\CategoryController')->except(['destroy']);//index,show/create/update/edit/store
+   Route::post('/category/{id}/delete', 'Admin\CategoryController@delete')->name('admin.category.delete');
    Route::post('/post/create', 'Admin\PostController@postCreate')->name('admin.post.create');
-   Route::post('/post/{id}/delete', 'Admin\PostController@delete')->name('admin.post.delete');
+   Route::get('/post/{id}/delete', 'Admin\PostController@delete')->name('admin.post.delete');
 
 });
 
+
+Route::get('/queue', function(){
+  $user = User::first();
+  dispatch(new SendWelcomeEmail($user));
+});
 

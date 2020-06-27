@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Post\PostRepository;
 use App\Models\Category;
+use App\Models\Post;
 class PostController extends Controller
 {   
 
@@ -107,8 +108,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Request $request,$id)
     {
-        //
+        
+        try {
+            $this->postRepo->delete($request->id);
+           return redirect()->back()->with('success','Xóa thành công!');
+        } catch (Exception $e) {
+            echo $e;
+        }
+        
+
     }
 }

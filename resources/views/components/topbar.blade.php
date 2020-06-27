@@ -1,4 +1,4 @@
-<div class="navbar-custom" style="background-color: #6c757d;    height: 50px;">
+<div class="navbar-custom" style="background: linear-gradient(to right, #43c6ac, #191654);    height: 50px;">
                 <ul class="list-unstyled topnav-menu float-right mb-0" style="margin-top: -10px;">
 
                     <li class="d-none d-sm-block">
@@ -69,12 +69,12 @@
                 <div class="logo-box" style="margin-top: -12px;height: 50px;width: 150px">
                     <a href="#" class="logo text-center">
                         <span class="logo-lg">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGOuYxSfqr24OqO4dOYVi9YUk_adq-rG3sHLp-FBmFh66Oj6lG&usqp=CAU" alt="" height="50">
+                            <img src="{{asset('/image/logo.png')}}" alt="" height="50">
                             <!-- <span class="logo-lg-text-light">UBold</span> -->
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-sm-text-dark">U</span> -->
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGOuYxSfqr24OqO4dOYVi9YUk_adq-rG3sHLp-FBmFh66Oj6lG&usqp=CAU" alt="" height="50">
+                            <img src="https://www.perfectespresso.ro/themes/Coffee/images/favicon/favicon-180.png" alt="" height="50">
                         </span>
                     </a>
                 </div>
