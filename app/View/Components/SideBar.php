@@ -27,8 +27,8 @@ class SideBar extends Component
         return view('components.sidebar');
     }
 
-    public function categories()
+    public function exprire()
     {
-        return Category::all();
+        return 1;
     }
 }

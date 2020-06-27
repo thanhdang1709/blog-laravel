@@ -23,6 +23,7 @@
         <!-- End Sidebar -->
         {{-- <div class="clearfix">
             <p style="margin-top: 0;margin-bottom: 0px;font-style: italic;color: #98a6ad;">Hết hạn:</p>
+            {{dd($expire)}}
             <span class="text-mute">{{$exprire}}</span>
         </div> --}}
     </div>

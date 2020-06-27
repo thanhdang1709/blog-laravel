@@ -54,7 +54,7 @@ class FrontHomeController extends Controller
     {
     	$category = $this->categoryRepo->findSlug($request->slug);
     	$posts = $category->posts;
-    	return view('front.single_category',compact('posts'));
+    	return view('front.category',compact('posts'));
     }
     public function filterTag(Request $request)
     {
