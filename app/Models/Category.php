@@ -12,8 +12,13 @@ class Category extends Model
     	return $this->hasMany('\App\Models\Post');
     }
 */
+    protected $fillable = ['name','slug','description'];
+    public $timestamps 	= false;
+    
     public function posts()
     {
     	return $this->belongsToMany('\App\Models\Post','category_posts','category_id','post_id');
     }
+
+
 }

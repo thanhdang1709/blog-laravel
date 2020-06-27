@@ -22,7 +22,8 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     }
 
     public function create($input = [])
-    {
+    {   
+        //dd($input);
         $data = [
             'title'     =>  $input['title'],
             'slug'      =>  Str::slug($input['title'],'-'),
@@ -33,9 +34,13 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
             'featured'  =>  1,
             'thumbnail' =>  $input['thumbnail']
         ];
+
         $post =  $this->model->create($data);
         if ($post) {
-            $post->categories()->attach($input['category']);
+            foreach ($input['category'] as  $value) {
+                $post->categories()->attach((int)$value);
+            }
+            
             $tags = explode(',', $input['tags']);
             foreach ($tags as $tag) {
                 $tag_id  = Tag::firstOrCreate(
@@ -69,6 +74,11 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         }
 
         return false;
+    }
+
+    public function search($slug,$column)
+    {   
+       return $this->model->FullTextSearch($column, $slug)->get();
     }
 
 }

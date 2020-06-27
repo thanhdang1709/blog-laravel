@@ -20,7 +20,16 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-
+            @include('session/alert');
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="POST" action="{{route('category.store')}}">
+                        @csrf
+                        <input type="text" name="name" class="form-control" placeholder="Input category name"><br>
+                        <input type="submit" name="submit" class="btn btn-success form-control" value="Thêm mới">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -37,7 +46,6 @@
         <script src="{{asset('assets\libs\datatables\dataTables.keyTable.min.js')}}"></script>
         <script src="{{asset('assets\libs\datatables\dataTables.select.min.js')}}"></script>
         <script src="{{asset('assets/libs/jquery-toast/jquery.toast.min.js')}}"></script>
-        <script src="{{asset('assets\libs\select2\select2.min.js')}}"></script>
         <!-- third party js ends -->
         <!-- Datatables init -->
         <script src="{{asset('assets\js\pages\datatables.init.js')}}"></script>

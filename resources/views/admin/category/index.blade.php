@@ -26,13 +26,8 @@
         <thead class="thead-light">
         <tr>
             <th width="auto"></th>
-            <th data-field="title" data-switchable="false">Title</th>
-            <th data-field="image">Image</th>
-            <th data-field="status">status</th>
-            <th data-field="comment">Comment</th>
-            <th data-field="featured">Featured</th>
-            <th data-field="created_at">created_at</th>
-            <th data-field="updated_at">updated_at</th>
+            <th data-field="title" data-switchable="false">name</th>
+            <th data-field="image">slug</th>
         </tr>
         </thead>
 

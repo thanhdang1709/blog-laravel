@@ -50,7 +50,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postCreate(Request $request)
-    {
+    {   
+        
         try {
             $input = $request->except(['_token','submit']);
             $request->validate([

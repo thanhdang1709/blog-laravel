@@ -11,10 +11,10 @@
                 </div>
                 <div class="col-xl-3 sidebar ftco-animate bg-light pt-5">
                   <div class="sidebar-box pt-md-4">
-                    <form action="#" class="search-form">
+                    <form action="" class="search-form">
                       <div class="form-group">
                         <span class="icon icon-search"></span>
-                        <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                        <input type="text" id="search_input" class="form-control" placeholder="Type a keyword and hit enter">
                       </div>
                     </form>
                   </div>
@@ -73,18 +73,21 @@
             <script type="text/javascript">
               $(document).ready(function(){
                     var current = location.pathname;
-                    console.log(current);
                       if(current == '/about'){
-                        console.log(current);
                           $('#item-about').addClass('cafeweb-active');
                       }
                       else{
                           $('#item-home').addClass('cafeweb-active');
                       }
+                  var input = $("#search_input");    
+                    input.keyup(function(event) {
+                    if (event.keyCode === 13) {
+                      event.preventDefault();
+                      window.location.href="/search/"+input.val();
+                    }
+                  });
               });
-                  
 
-        
             </script>
           </body>
         </html>

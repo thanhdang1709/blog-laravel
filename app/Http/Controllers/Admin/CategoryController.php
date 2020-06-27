@@ -36,7 +36,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        
+
+    return view('admin.category.create');
     }
 
     /**
@@ -47,7 +49,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        try {
+            $data = ['name'=>$request->name,'slug'=>\Str::slug($request->name)];
+            $create = $this->categoryRepo->create($data);
+            if ($create) {
+                return redirect()->back()->with('success','Thêm category thành công!');
+            }
+        } catch (Exception $e) {
+            return $e;
+        }
     }
 
     /**

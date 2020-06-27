@@ -20,14 +20,12 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         return $this->model->take(5)->get();
     }
 
-    public function create( $input = [])
-    {
-        
-
-    }
-
     public function find($id)
     {
         return $this->model->select('name')->whereId($id)->first();
+    }
+    public function findSlug($id)
+    {
+        return $this->model->whereSlug($id)->first();
     }
 }

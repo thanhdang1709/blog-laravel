@@ -5,7 +5,7 @@
             <ul class="metismenu" id="side-menu">
                 <li class="menu-title">DASHBOARD</li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('category.index')}}">
                         <i class="fas fa-newspaper"></i>
                         <span class="badge badge-success badge-pill float-right">0</span>
                         <span> Danh mục </span>

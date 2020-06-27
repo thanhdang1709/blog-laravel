@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Post\PostRepository;
+use App\Repositories\Category\CategoryRepository;
 use App\Models\Category;
-
+use App\Models\Post;
+use App\Models\Tag;
 class FrontHomeController extends Controller
 {
     
 
     protected $postRepo;
+    protected $categoryRepo;
 
-    public function __construct(PostRepository $postRepo)
+    public function __construct(PostRepository $postRepo,CategoryRepository $categoryRepo)
     {
         $this->postRepo = $postRepo;
+        $this->categoryRepo = $categoryRepo;
     }
 
     /**
@@ -44,5 +48,26 @@ class FrontHomeController extends Controller
     public function contact()
     {
     	return view('front.contact');
+    }
+
+    public function filterCategory(Request $request)
+    {
+    	$category = $this->categoryRepo->findSlug($request->slug);
+    	$posts = $category->posts;
+    	return view('front.single_category',compact('posts'));
+    }
+    public function filterTag(Request $request)
+    {
+    	$tag = Tag::whereSlug($request->slug)->first();
+    	$posts = $tag->posts;
+    	return view('front.tag',compact('posts'));
+    }
+
+    public function search(Request $request)
+    {
+    	if ($request->slug != '') {
+          $posts = $this->postRepo->search($request->slug,'title');
+          return view('front.search',compact('posts'));
+      	}
     }
 }

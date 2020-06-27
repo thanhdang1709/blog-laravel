@@ -5,8 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Comment;
 use App\Models\Category;
+use App\Traits\FullTextSearch;
 class Post extends Model
-{
+{   
+    use FullTextSearch;
+
     protected $fillable = ['title','slug','summary','content','status','comments','featured','thumbnail'];
     public function get_comments()
     {
@@ -23,5 +26,7 @@ class Post extends Model
         return $this->belongsToMany('App\Models\Tag','post_tags','post_id','tag_id');
     }
 
+
+    
 
 }

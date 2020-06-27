@@ -18,10 +18,10 @@ use App\Jobs\SendWelcomeEmail;
 */
 
 Route::get('/', 'FrontHomeController@index');
-Route::get('/p/{slug}', 'FrontHomeController@single');
-Route::get('/c/{slug}', 'FrontHomeController@singleCategory');
-Route::get('/s/{slug}', 'FrontHomeController@singleSearch');
-
+Route::get('/post/{slug}', 'FrontHomeController@single');
+Route::get('/category/{slug}', 'FrontHomeController@filterCategory');
+Route::get('/search/{slug}', 'FrontHomeController@search');
+Route::get('/tag/{slug}', 'FrontHomeController@filterTag');
 
 Route::get('/about', 'FrontHomeController@about')->name('about');
 Route::get('/contact', 'FrontHomeController@contact')->name('contact');
@@ -47,6 +47,14 @@ Route::group([
    Route::get('/post/{id}/delete', 'Admin\PostController@delete')->name('admin.post.delete');
 
 });
+
+/*Route::get('/c', function(){
+  $category = Category::find(4);
+  $posts = ($category->posts);
+  foreach ($posts as $key => $value) {
+   echo $value->slug;
+  }
+});*/
 
 
 Route::get('/queue', function(){

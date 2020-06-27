@@ -7,6 +7,7 @@
 <link href="{{asset('assets\libs\switchery\switchery.min.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/libs/jquery-toast/jquery.toast.min.css')}}" rel="stylesheet" type="text/css">
 <!-- third party css end -->
+ <link href="{{asset('assets\libs\select2\select2.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -22,7 +23,7 @@
                     </div>
                     <div class="form-group mb-3 col-md-3">
                         <label for="title">CATEGORY</label>
-                        <select class="form-control" name="category">
+                        <select id="category" name="category[]" multiple="multiple" class="form-control" >
                             <option value="0">Select Option</option>
                             @foreach ($categories as $category)
                                <option value="{{$category->id}}">{{$category->name}}</option>
@@ -98,6 +99,7 @@
         <script src="{{asset('assets\libs\bootstrap-table/bootstrap-table.min.js')}}"></script>
         <script src="{{asset('assets\libs\switchery\switchery.min.js')}}"></script>
         <script src="{{asset('assets/libs/jquery-toast/jquery.toast.min.js')}}"></script>
+        <script src="{{asset('assets\libs\select2\select2.min.js')}}"></script>
         <!-- third party js ends -->
         <!-- Datatables init -->
         <script src="{{asset('assets\libs\sweetalert2\sweetalert2.min.js')}}"></script>
@@ -194,5 +196,6 @@
               <script>
                 $('#lfm').filemanager('image', {prefix: route_prefix});
                 // $('#lfm').filemanager('file', {prefix: route_prefix});
+                $('#category').select2();
               </script>
 @endsection
