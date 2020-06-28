@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
                 \App\Repositories\Product\ProductRepositoryInterface::class,
                 \App\Repositories\Product\ProductRepository::class
             );*/
+            
     }
 
     /**

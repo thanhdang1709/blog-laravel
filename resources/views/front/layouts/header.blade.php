@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{asset('assets\front\css\flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('assets\front\css\icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('assets\front\css\style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets\css\prism.css')}}">
   </head>
   <body>
     <div id="cafeweb-page">

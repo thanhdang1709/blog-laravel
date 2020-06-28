@@ -7,7 +7,8 @@
 <link href="{{asset('assets\libs\switchery\switchery.min.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/libs/jquery-toast/jquery.toast.min.css')}}" rel="stylesheet" type="text/css">
 <!-- third party css end -->
- <link href="{{asset('assets\libs\select2\select2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets\libs\select2\select2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets\css\prism.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -103,6 +104,8 @@
         <!-- third party js ends -->
         <!-- Datatables init -->
         <script src="{{asset('assets\libs\sweetalert2\sweetalert2.min.js')}}"></script>
+
+        <script src="{{asset('assets\js\prism.js')}}"></script>
         <script type="text/javascript">
         </script>
         <!-- CKEditor init -->
@@ -118,9 +121,11 @@
                     "advlist autolink lists link image charmap print preview hr anchor pagebreak",
                     "searchreplace wordcount visualblocks visualchars code fullscreen",
                     "insertdatetime media nonbreaking save table contextmenu directionality",
-                    "emoticons template paste textcolor colorpicker textpattern fullpage"
+                    "emoticons template paste textcolor colorpicker textpattern fullpage codesample"
                 ],
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor",
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor codesample",
+
+                 codesample_global_prismjs: true,
                 relative_urls: false,
                 fullpage_default_font_size: "14px",
                 file_browser_callback : function(field_name, url, type, win) {

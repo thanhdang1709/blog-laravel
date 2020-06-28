@@ -70,6 +70,7 @@
             <script src="{{asset('assets\front\js\jquery.animateNumber.min.js')}}"></script>
             <script src="{{asset('assets\front\js\scrollax.min.js')}}"></script>
             <script src="{{asset('assets\front\js\main.js')}}"></script>
+            <script src="{{asset('assets\js\prism.js')}}"></script>
             <script type="text/javascript">
               $(document).ready(function(){
                     var current = location.pathname;
