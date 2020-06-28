@@ -62,3 +62,9 @@ Route::get('/queue', function(){
   dispatch(new SendWelcomeEmail($user));
 });
 
+
+
+
+Route::fallback(function(){
+  return view('front.404');
+});

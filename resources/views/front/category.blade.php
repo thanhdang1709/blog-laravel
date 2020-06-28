@@ -6,7 +6,7 @@
 	@foreach ($posts as $post)
 		<div class="col-md-12">
 		<div class="blog-entry ftco-animate d-md-flex">
-			<a href="p/{{$post->slug}}" class="img img-2" style="background-image: url({{$post->thumbnail??'/assets/front/images/image_1.jpg'}});"></a>
+			<a href="/post/{{$post->slug}}" class="img img-2" style="background-image: url({{$post->thumbnail??'/assets/front/images/image_1.jpg'}});"></a>
 			<div class="text text-2 pl-md-4">
 				<h3 class="mb-2"><a href="/post/{{$post->slug}}">{{ Str::limit($post->title, 70, $end='...') }}</a></h3>
 				@if (empty($post))
@@ -16,7 +16,7 @@
 					<p class="meta">
 						<span><i class="icon-calendar mr-2"></i>{{date('d-m-Y',strtotime($post->created_at))}}</span>
 						@foreach ($post->categories as $category)
-							<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{$category->name}}</a></span>
+							<span><a href="/category/{{$category->slug}}"><i class="icon-folder-o mr-2"></i>{{$category->name}}</a></span>
 						@endforeach
 						
 						<span><i class="icon-comment2 mr-2"></i>{{$post->get_comments()->count()}} Bình luận</span>

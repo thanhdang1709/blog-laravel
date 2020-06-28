@@ -12,7 +12,7 @@
 					<p class="meta">
 						<span><i class="icon-calendar mr-2"></i>{{date('d-m-Y',strtotime($post->created_at))}}</span>
 						@foreach ($post->categories as $category)
-							<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{$category->name}}</a></span>
+							<span><a href="/category/{{$category->slug}}"><i class="icon-folder-o mr-2"></i>{{$category->name}}</a></span>
 						@endforeach
 						
 						<span><i class="icon-comment2 mr-2"></i>{{$post->get_comments()->count()}} Bình luận</span>
