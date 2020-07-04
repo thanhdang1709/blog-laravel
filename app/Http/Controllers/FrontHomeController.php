@@ -28,7 +28,9 @@ class FrontHomeController extends Controller
      */
     public function index()
     {
-        $posts = $this->postRepo->getAllWithPaginate();
+        $posts = \Cache::remember('index',600,function() {
+            return $this->postRepo->getAllWithPaginate();
+            });
         
         return view('front.index',compact('posts'));
     }
